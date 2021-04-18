@@ -1,26 +1,15 @@
-/* ### Primary
-
-- Very dark blue (main background): hsl(233, 47%, 7%)
-- Dark desaturated blue (card background): hsl(244, 38%, 16%)
-- Soft violet (accent): hsl(277, 64%, 61%)
-
-### Neutral
-
-- White (main heading, stats): hsl(0, 0%, 100%)
-- Slightly transparent white (main paragraph): hsla(0, 0%, 100%, 0.75)
-- Slightly transparent white (stat headings): hsla(0, 0%, 100%, 0.6) */
-
 * {
     box-sizing: border-box;
 }
 
 html {
+    font-family: 'Inter', sans-serif;
     font-size: 15px;
-    color: hsla(0, 0%, 100%, 0.75);
+    color: #fff;
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     background: hsl(233, 47%, 7%);
     display: flex;
     justify-content: center;
@@ -35,6 +24,7 @@ body {
     max-width: 1110px;
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0px 20px 5px 20px rgba(23, 25, 41, .2);
 }
 
 .card__background {
@@ -46,20 +36,50 @@ body {
 }
 
 .card__inner {
-    padding: 16px;
+    padding: 31px;
     text-align: center;
 }
 
 .card__title {
+    font-size: 1.75rem;
+    margin: 12px 0;
+}
 
+.card__title--highlight {
+    color: hsl(277, 64%, 61%);
 }
 
 .card__text {
-
+    line-height: 1.5;
+    font-weight: bold;
+    color: hsla(0, 0%, 100%, 0.75);
 }
 
 .card__stats {
-    list-style: none;    
+    list-style: none; 
+    margin: 0;  
+    padding: 0;
+}
+
+.card__stats li {
+    list-style: none;
+    padding: 8px 0;
+}
+
+.card__stats li div {
+    padding: 2.5px 0;
+}
+
+.card__stats li div:nth-child(1) {
+    font-weight: bold;
+    font-size: 24px;
+    
+}
+.card__stats li div:nth-child(2) {
+    font-family: 'Lexend Deca', sans-serif;
+    text-transform: uppercase;
+    color: hsla(0, 0%, 100%, 0.6);
+    font-size: 12px;
 }
 
 .attribution { font-size: 11px; text-align: center; }
@@ -68,16 +88,36 @@ body {
 @media (min-width: 769px) {
     .card {
         display: flex;
-        height: 446px;
+        min-height: 446px;
     }
 
     .card__background {
-        flex: 1;
+        flex: 1 50%;
         order: 1;
         height: auto;
     }
 
     .card__inner {
+        display: flex;
+        flex-flow: column nowrap;
+        flex: 1 50%;
+        text-align: left;
+        padding: 50px 90px 50px 70px;
+    }
+
+    .card__title {
+        font-size: 36px;
+    }
+
+    .card__text {
+        flex: 1;
+    }
+
+    .card__stats {
+        display: flex;
+    }
+
+    .card__stats li {
         flex: 1;
     }
 }
